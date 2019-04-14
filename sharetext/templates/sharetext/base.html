@@ -1,0 +1,28 @@
+{% load static %}
+
+{% include 'sharetext/header.html' %}
+
+
+{% if loggedin is not None and sentdata is None and  receiveddata is None  %}
+    {% block loggedIn %} {% endblock %}
+
+{% elif loggedin is not None and sentdata is not None %}
+    {% block sent %} {% endblock %}
+
+{% elif loggedin is not None and receiveddata is not None %}
+    {% block received %} {% endblock %}
+
+{% else %}
+
+    {% include 'sharetext/login.html' %}
+
+    {% include 'sharetext/register.html' %}
+
+
+{% endif %}
+
+
+
+
+</body>
+</html>
