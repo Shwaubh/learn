@@ -1,0 +1,15 @@
+{% extends 'sharetext/base.html' %}
+
+{% block sent %}
+
+    <ul>
+    {% for i in sentdata %}
+
+        <li>receiver : {{ i.receiver.username }}</li>
+        <li>{{ i.msg }}</li>
+        <hr/>
+
+    {% endfor %}
+    </ul>
+
+{% endblock %}

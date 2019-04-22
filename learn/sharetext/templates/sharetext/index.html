@@ -1,0 +1,28 @@
+{% extends 'sharetext/base.html' %}
+
+{% load static %}
+
+
+{% block loggedIn %}
+
+    {% include 'sharetext/loggedInHeader.html' %}
+
+    <form action="sendmessage/" method="post"  style="margin : 16px;" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+    {% for i in data %}
+
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="user" value="{{i.pk}}"> {{ i }}
+            </label>
+        </div>
+
+    {% endfor %}
+        <input type="file" name="file" class="form-control">
+        <textarea name="msg" class="form-control" rows="3" style="width : 30%;" placeholder="Enter your message here" required></textarea><br/>
+        <input type="submit" class="btn btn-primary">
+    </form>
+
+{% endblock %}
